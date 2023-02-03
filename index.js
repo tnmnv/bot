@@ -1,5 +1,6 @@
 const TelegramApi = require('node-telegram-bot-api')
 const {gameOptions, againOptions} = require('./options')
+const sequelize = require('./db')
 
 const token = "5485612344:AAEmHkgh_W9NUdGbGjAktsv_Fd7zZivmpjM";
 
@@ -18,7 +19,19 @@ const startGame = async (chatId) =>{
 }
 
 
-const start = () => {
+const start = async () => {
+
+    try {
+
+        await sequelize.authenticate()
+        await sequelize.sync()
+
+    } catch (e) {
+        console.log('Podkliuchenie k BD slomalosi', e)
+    }
+    
+    
+    
     bot.setMyCommands([
         {command: '/start', description:"Nachalnoe privetstvie"},
         {command: '/info', description: "Poluchiti informatsiu"},
