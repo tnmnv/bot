@@ -1,7 +1,7 @@
 const {Sequelize} = require('sequelize');
 
 module.exports = new Sequelize(
-    'postgresql-convex-18352',
+    'd3b55prf8boft5',
     'imkrnqhodxhflb',
     'f35751f8f4a6b7ba44ea96e8aed84d62cc20eeb2525d86b99771051a478c4816',
     {
