@@ -47,6 +47,9 @@ const start = async () => {
 
             if(text === '/start'){
                 await UserModel.create({chatId})
+                if (!user) {
+                    await UserModel.create({chatId});
+                  }
                 await bot.sendSticker(chatId, 'https://tlgrm.eu/_/stickers/ea5/382/ea53826d-c192-376a-b766-e5abc535f1c9/7.webp')
                 return bot.sendMessage(chatId, `Dobro pojalovati`) 
              }
