@@ -50,6 +50,7 @@ const start = async () => {
                 await bot.sendSticker(chatId, 'https://tlgrm.eu/_/stickers/ea5/382/ea53826d-c192-376a-b766-e5abc535f1c9/7.webp')
                 return bot.sendMessage(chatId, `Dobro pojalovati`) 
              }
+
              if(text === '/info'){
                 const user = await UserModel.findOne({chatId})
                 return bot.sendMessage(chatId, `Tebea zovut ${msg.from.first_name}  ${msg.from.last_name},  v igre u tebia pravelinih otvetov ${user.right}, nepravelinih otvetov ${user.wrong}`) 
@@ -80,7 +81,7 @@ const start = async () => {
            
             if (data == chats[chatId]){
                 user.right +=1;
-             await bot.sendMessage(chatId, `Pozdrovlyaiu, ti otgdala tsifru ${chats[chatId]}`, againOptions)
+                await bot.sendMessage(chatId, `Pozdrovlyaiu, ti otgdala tsifru ${chats[chatId]}`, againOptions)
             }
             else{
                 user.wrong +=1;
@@ -94,8 +95,6 @@ const start = async () => {
         })
        
     }
-
-    
 
 
 start()
