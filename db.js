@@ -10,3 +10,5 @@ module.exports = new Sequelize(
         dialect: 'postgres'
     }
 )
+
+

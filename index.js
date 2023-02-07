@@ -46,7 +46,7 @@ const start = async () => {
         try {
 
             if(text === '/start'){
-                await UserModel.create({chatId})
+               const user =  await UserModel.findOne({chatId})
                 if (!user) {
                     await UserModel.create({chatId});
                   }
